@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import data from "./data.json";
-interface TodoItem {
+import Item from "./itemCard";
+export interface TodoItem {
   type: string;
   name: string;
 }
@@ -17,10 +18,9 @@ export default function Todo() {
   return (
     <div className="min-h-screen">
       <div className=" grid grid-cols-3 gap-4 p-4 bg-slate-500">
-        <div className=" bg-slate-50">
-          free
+        <div className=" bg-slate-50 flex flex-col gap-4 p-4">
           {todoItems.map((item) => (
-            <div>{item.name}</div>
+            <Item item={item} />
           ))}
         </div>
 

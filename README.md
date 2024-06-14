@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Assignment
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 1. Auto Delete Todo List
+✅
+```
+    [
+        {
+            type: 'Fruit',
+            name: 'Apple',
+        },
+        {
+            type: 'Vegetable',
+            name: 'Broccoli',
+        },
+       .
+       .
+       .
+       
+        {
+            type: 'Fruit',
+            name: 'Watermelon',
+        },
+        {
+            type: 'Vegetable',
+            name: 'Carrot',
+        },
+    ]
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Please make a todo list that
+- [✅]  Have a list of clickable buttons.  
+- [✅]  Each button will be moved into its own column separated by type.
+- [✅]  Once moved, each button will have 5 seconds on the screen and then will be moved back to the bottom of the main list.
+- [✅]  If click on the right column (Fruit/Vegetable) the item must go back to the bottom of the left column (list) immediately.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+> [!CAUTION]
+ ✅ > Please host the test on a hosting service and send us the link.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+See example in the link below
+[Video Link](https://drive.google.com/file/d/170AYx0lOXs4DLyZiPGGIgmQpFhwTKNih/view?usp=sharing)
 
-## Learn More
+Please do your best to show your best solution
+we are looking for
+- [?] 1. Answer the need of question 
+- [✅ 🥺] 2. Clean code easy to read 
 
-To learn more about Next.js, take a look at the following resources:
+Bonus: if you have multiple solutions we could discuss those theories in our interview (no need to submit multiple versions, just send us the best one you think.)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 2. Create data from API *(OPTIONAL)*
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+API from <https://dummyjson.com/users>
 
-## Deploy on Vercel
+- [✅] Your project must use Typescript, Typescript module, and HTTP framework [axios]
+- [✅] Tranforms JSON data from API to new data groupBy department
+- [X] We encourage you to write tests, which we will give you some extra score
+- [✅ 🥺] We will give you an extra score if you focus on performance.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+--- sample response ---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```json
+    {
+        [Department]: {
+            "male": 1,                      // ---> Male Count Summary
+            "female": 1,                    // ---> Female Count Summary
+            "ageRange": "XX-XX",            // ---> Range
+            "hair": {                       // ---> "Color": Color Summary
+                "Black": 1,                
+                "Blond": 1,
+                "Chestnut": 1,
+                "Brown": 1
+            },
+            "addressUser": {                // ---> "firstNamelastName": postalCode
+                "TerryMedhurst": "XXXXX",
+            }
+        }
+    }, 
+    ...
+```
+
+# I want to be Frontend Developer 🥺

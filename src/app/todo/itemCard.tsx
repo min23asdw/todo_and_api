@@ -16,6 +16,7 @@ export default function Item(props: ItemProp) {
       console.log("start couter");
       timeout = setTimeout(() => {
         // console.log('auto call pop')
+        clearTimeout(timeout);
         onClick();
       }, 5000);
     }
@@ -25,7 +26,7 @@ export default function Item(props: ItemProp) {
         clearTimeout(timeout);
       }
     };
-  }, [count,onClick]);
+  }, []);
 
   return (
     <button

@@ -16,9 +16,28 @@ export default function Todo() {
 
   return (
     <div className="min-h-screen">
-      {todoItems.map((item) => (
-        <div>{item.name}</div>
-      ))}
+      <div className=" grid grid-cols-3 gap-4 p-4 bg-slate-500">
+        <div className=" bg-slate-50">
+          free
+          {todoItems.map((item) => (
+            <div>{item.name}</div>
+          ))}
+        </div>
+
+        <div className=" bg-slate-50">
+          Fruit
+          {fruitItems.map((item) => (
+            <div>{item.name}</div>
+          ))}
+        </div>
+
+        <div className=" bg-slate-50">
+          Vegetable
+          {vegetableItems.map((item) => (
+            <div>{item.name}</div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

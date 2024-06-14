@@ -28,6 +28,7 @@ export default function Todo() {
   ) => {
     from((prv) => prv.filter((i) => i.name !== item.name));
     to((prv) => [...prv, item]);
+    // console.log('Sorted')
   };
 
   const handleItemSort = (
@@ -36,8 +37,10 @@ export default function Todo() {
   ) => {
     if (item.type === "Fruit") {
       ItemSorted(item, from, setFruitItems);
+      // console.log('call sorted f')
     } else if (item.type === "Vegetable") {
       ItemSorted(item, from, setVegetableItems);
+      // console.log('call sorted v')
     }
   };
 
@@ -47,6 +50,7 @@ export default function Todo() {
   ) => {
     from((prv) => prv.filter((i) => i.name !== item.name));
     settodoItems((prv) => [...prv, item]);
+    // console.log('Pop')
   };
   return (
     <div className="min-h-screen">
@@ -56,6 +60,7 @@ export default function Todo() {
             <Item
               key={item.name}
               item={item}
+              count={false}
               onClick={() => handleItemSort(item, settodoItems)}
             />
           ))}
@@ -67,6 +72,7 @@ export default function Todo() {
             <Item
               key={item.name}
               item={item}
+              count={true}
               onClick={() => ItemUnsorted(item, setFruitItems)}
             />
           ))}
@@ -78,6 +84,7 @@ export default function Todo() {
             <Item
               key={item.name}
               item={item}
+              count={true}
               onClick={() => ItemUnsorted(item, setVegetableItems)}
             />
           ))}

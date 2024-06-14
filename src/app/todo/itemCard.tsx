@@ -25,7 +25,7 @@ export default function Item(props: ItemProp) {
         clearTimeout(timeout);
       }
     };
-  }, []);
+  }, [count,onClick]);
 
   return (
     <button

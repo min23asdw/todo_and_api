@@ -19,7 +19,7 @@ export default function Todo() {
       })
     );
     settodoItems(initData);
-  }, [data]);
+  }, []);
 
   const ItemSorted = (
     item: TodoItem,

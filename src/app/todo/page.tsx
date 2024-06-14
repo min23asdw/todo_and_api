@@ -54,40 +54,46 @@ export default function Todo() {
   };
   return (
     <div className="min-h-screen">
-      <div className=" grid grid-cols-3 gap-4 p-4 bg-slate-500">
-        <div className=" bg-slate-50 flex flex-col gap-4 p-4">
-          {todoItems.map((item) => (
-            <Item
-              key={item.name}
-              item={item}
-              count={false}
-              onClick={() => handleItemSort(item, settodoItems)}
-            />
-          ))}
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 p-4  w-[80%] mx-auto my-12">
+        <div className="h-[600px] overflow-auto bg-slate-50 gap-4 p-4 rounded-lg shadow">
+          <div className="flex flex-col gap-4">
+            {todoItems.map((item) => (
+              <Item
+                key={item.name}
+                item={item}
+                count={false}
+                onClick={() => handleItemSort(item, settodoItems)}
+              />
+            ))}
+          </div>
         </div>
 
-        <div className=" bg-slate-50 flex flex-col gap-4 p-4">
-          Fruit
-          {fruitItems.map((item) => (
-            <Item
-              key={item.name}
-              item={item}
-              count={true}
-              onClick={() => ItemUnsorted(item, setFruitItems)}
-            />
-          ))}
+        <div className="h-[600px]  overflow-auto bg-slate-50 gap-4 p-4  rounded-lg shadow">
+          <div>Fruit</div>
+          <div className="flex flex-col gap-4">
+            {fruitItems.map((item) => (
+              <Item
+                key={item.name}
+                item={item}
+                count={true}
+                onClick={() => ItemUnsorted(item, setFruitItems)}
+              />
+            ))}
+          </div>
         </div>
 
-        <div className=" bg-slate-50 flex flex-col gap-4 p-4">
-          Vegetable
-          {vegetableItems.map((item) => (
-            <Item
-              key={item.name}
-              item={item}
-              count={true}
-              onClick={() => ItemUnsorted(item, setVegetableItems)}
-            />
-          ))}
+        <div className="h-[600px]  overflow-auto bg-slate-50   p-4  rounded-lg shadow">
+          <div>Vegetable</div>
+          <div className="flex flex-col gap-4">
+            {vegetableItems.map((item) => (
+              <Item
+                key={item.name}
+                item={item}
+                count={true}
+                onClick={() => ItemUnsorted(item, setVegetableItems)}
+              />
+            ))}{" "}
+          </div>
         </div>
       </div>
     </div>

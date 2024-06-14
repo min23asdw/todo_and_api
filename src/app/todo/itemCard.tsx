@@ -13,7 +13,7 @@ export default function Item(props: ItemProp) {
   useEffect(() => {
     let timeout: NodeJS.Timeout;
     if (count) {
-        console.log('start couter')
+      console.log("start couter");
       timeout = setTimeout(() => {
         // console.log('auto call pop')
         onClick();
@@ -28,11 +28,15 @@ export default function Item(props: ItemProp) {
   }, []);
 
   return (
-    <button className=" bg-slate-400" onClick={onClick}>
-      <div>
-        {item.name}
-        {item.type}
-        {count ? ":t" : ":f"}
+    <button
+      className={`rounded ${count ? "bg-red-200" : "bg-green-200"} shadow-lg`}
+      onClick={onClick}
+    >
+      <div className="relative py-2 px-4">
+        <div className="absolute top-0 right-0 text-xs bg-gray-200 px-2 py-1 rounded">
+          {item.type}
+        </div>
+        <div className="w-full     rounded mt-2">{item.name}</div>
       </div>
     </button>
   );

@@ -1,15 +1,20 @@
+import { useEffect } from "react";
 import { TodoItem } from "./page";
 
 interface ItemProp {
   item: TodoItem;
-  sorted?: () => void;
-  unsorted?: () => void;
+  onClick?: () => void;
 }
 
 export default function Item(props: ItemProp) {
-  const { item, sorted } = props;
+  const { item, onClick } = props;
+
+  useEffect(() => {
+  //...
+  }, [ ])
+  
   return (
-    <button className=" bg-slate-400" onClick={sorted}>
+    <button className=" bg-slate-400" onClick={onClick}>
       <div>
         {item.name}
         {item.type}

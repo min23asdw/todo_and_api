@@ -40,29 +40,46 @@ export default function Todo() {
       ItemSorted(item, from, setVegetableItems);
     }
   };
+
+  const ItemUnsorted = (
+    item: TodoItem,
+    from: Dispatch<SetStateAction<TodoItem[]>>
+  ) => {
+    from((prv) => prv.filter((i) => i.name !== item.name));
+    settodoItems((prv) => [...prv, item]);
+  };
   return (
     <div className="min-h-screen">
       <div className=" grid grid-cols-3 gap-4 p-4 bg-slate-500">
         <div className=" bg-slate-50 flex flex-col gap-4 p-4">
           {todoItems.map((item) => (
             <Item
+              key={item.name}
               item={item}
-              sorted={() => handleItemSort(item, settodoItems)}
+              onClick={() => handleItemSort(item, settodoItems)}
             />
           ))}
         </div>
 
-        <div className=" bg-slate-50">
+        <div className=" bg-slate-50 flex flex-col gap-4 p-4">
           Fruit
           {fruitItems.map((item) => (
-            <Item item={item} />
+            <Item
+              key={item.name}
+              item={item}
+              onClick={() => ItemUnsorted(item, setFruitItems)}
+            />
           ))}
         </div>
 
-        <div className=" bg-slate-50">
+        <div className=" bg-slate-50 flex flex-col gap-4 p-4">
           Vegetable
           {vegetableItems.map((item) => (
-            <Item item={item} />
+            <Item
+              key={item.name}
+              item={item}
+              onClick={() => ItemUnsorted(item, setVegetableItems)}
+            />
           ))}
         </div>
       </div>

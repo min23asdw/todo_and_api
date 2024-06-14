@@ -92,10 +92,61 @@ export default function Todo() {
                 count={true}
                 onClick={() => ItemUnsorted(item, setVegetableItems)}
               />
-            ))}{" "}
+            ))}
           </div>
         </div>
+
+
+          {/*It can do something like this. But not readable 🥴*/}
+        {/* <Section
+          Title={""}
+          Items={todoItems}
+          fn={handleItemSort}
+          from={settodoItems}
+          count={false}
+        />
+        <Section
+          Title={"Fruit"}
+          Items={fruitItems}
+          fn={ItemUnsorted}
+          from={setFruitItems}
+          count={true}
+        />
+        <Section
+          Title={"Vegetable"}
+          Items={vegetableItems}
+          fn={ItemUnsorted}
+          from={setVegetableItems}
+          count={true}
+        /> */}
       </div>
     </div>
   );
 }
+
+// interface SectionProp {
+//   Title: string;
+//   Items: TodoItem[];
+//   fn: (item: TodoItem, from: Dispatch<SetStateAction<TodoItem[]>>) => void;
+//   from: Dispatch<SetStateAction<TodoItem[]>>;
+//   count: boolean;
+// }
+
+// function Section(props: SectionProp) {
+//   const { Title, Items, fn, from, count } = props;
+//   return (
+//     <div className="h-[600px] overflow-auto bg-slate-50 gap-4 p-4 rounded-lg shadow">
+//       <div>{Title}</div>
+//       <div className="flex flex-col gap-4">
+//         {Items.map((item) => (
+//           <Item
+//             key={item.name}
+//             item={item}
+//             count={count}
+//             onClick={() => fn(item, from)}
+//           />
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }

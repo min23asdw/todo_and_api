@@ -1,9 +1,9 @@
 "use client";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import data from "./data.json";
 import Item from "./itemCard";
 export interface TodoItem {
-  type: string;
+  type: "Fruit" | "Vegetable";
   name: string;
 }
 export default function Todo() {
@@ -12,29 +12,57 @@ export default function Todo() {
   const [vegetableItems, setVegetableItems] = useState<TodoItem[]>([]);
 
   useEffect(() => {
-    settodoItems(data);
+    const initData: TodoItem[] = data.map(
+      (item: { type: string; name: string }) => ({
+        type: item.type as "Fruit" | "Vegetable",
+        name: item.name,
+      })
+    );
+    settodoItems(initData);
   }, [data]);
 
+  const ItemSorted = (
+    item: TodoItem,
+    from: Dispatch<SetStateAction<TodoItem[]>>,
+    to: Dispatch<SetStateAction<TodoItem[]>>
+  ) => {
+    from((prv) => prv.filter((i) => i.name !== item.name));
+    to((prv) => [...prv, item]);
+  };
+
+  const handleItemSort = (
+    item: TodoItem,
+    from: Dispatch<SetStateAction<TodoItem[]>>
+  ) => {
+    if (item.type === "Fruit") {
+      ItemSorted(item, from, setFruitItems);
+    } else if (item.type === "Vegetable") {
+      ItemSorted(item, from, setVegetableItems);
+    }
+  };
   return (
     <div className="min-h-screen">
       <div className=" grid grid-cols-3 gap-4 p-4 bg-slate-500">
         <div className=" bg-slate-50 flex flex-col gap-4 p-4">
           {todoItems.map((item) => (
-            <Item item={item} />
+            <Item
+              item={item}
+              sorted={() => handleItemSort(item, settodoItems)}
+            />
           ))}
         </div>
 
         <div className=" bg-slate-50">
           Fruit
           {fruitItems.map((item) => (
-            <div>{item.name}</div>
+            <Item item={item} />
           ))}
         </div>
 
         <div className=" bg-slate-50">
           Vegetable
           {vegetableItems.map((item) => (
-            <div>{item.name}</div>
+            <Item item={item} />
           ))}
         </div>
       </div>
